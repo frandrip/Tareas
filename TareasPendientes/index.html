@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tareas Pendientes</h1>
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Añadir nueva tarea...">
+            <button id="addTaskBtn">Añadir Tarea</button>
+        </div>
+
+        <div class="controls">
+            <div class="filters">
+                <button id="filterAll" class="active">Todas</button>
+                <button id="filterPending">Pendientes</button>
+                <button id="filterCompleted">Completadas</button>
+            </div>
+            <div class="task-count">
+                Tareas: <span id="totalTasks">0</span> (<span id="pendingTasks">0</span> pendientes)
+            </div>
+        </div>
+        
+        <ul id="taskList">
+            </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

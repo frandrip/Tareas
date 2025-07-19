@@ -1,0 +1,203 @@
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #263238; /* Gris azulado oscuro, suave para los ojos */
+    color: #ecf0f1; /* Blanco suave para el texto principal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgba(44, 62, 80, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #1abc9c;
+    margin-bottom: 35px;
+    font-size: 2.8em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1.5px;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px; /* Espacio entre input y botón */
+    margin-bottom: 25px; /* Más espacio antes de los controles */
+}
+
+#taskInput {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    padding: 14px;
+    border: 1px solid #34495e;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ecf0f1;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#taskInput:focus {
+    outline: none;
+    border-color: #1abc9c;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#taskInput::placeholder {
+    color: #95a5a6;
+}
+
+#addTaskBtn {
+    padding: 14px 22px;
+    background-color: #2ecc71;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addTaskBtn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px; /* Espacio antes de la lista de tareas */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    gap: 15px; /* Espacio entre los grupos de control */
+}
+
+.filters button {
+    background-color: rgba(52, 73, 94, 0.7); /* Azul oscuro suave para los botones de filtro */
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin-right: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filters button:last-child {
+    margin-right: 0;
+}
+
+.filters button:hover:not(.active) {
+    background-color: rgba(52, 73, 94, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.filters button.active {
+    background-color: #1abc9c; /* Turquesa para el botón activo */
+    color: #2c3e50;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+}
+
+.task-count {
+    color: #bdc3c7; /* Gris claro para el contador */
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#totalTasks, #pendingTasks {
+    color: #2ecc71; /* Verde esmeralda para los números del contador */
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 0; /* Ya tenemos margen en .controls */
+}
+
+#taskList li {
+    background-color: rgba(44, 62, 80, 0.2);
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid #3498db;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#taskList li:hover {
+    background-color: rgba(44, 62, 80, 0.3);
+}
+
+#taskList li.completed {
+    text-decoration: line-through;
+    color: #95a5a6;
+    border-left-color: #16a085;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+#taskList li input[type="checkbox"] {
+    margin-right: 18px;
+    transform: scale(1.4);
+    accent-color: #2ecc71;
+    cursor: pointer;
+    filter: drop-shadow(0 0 3px rgba(46, 204, 113, 0.5));
+}
+
+#taskList li span {
+    flex-grow: 1;
+    word-break: break-word;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#taskList li.completed span {
+    cursor: default;
+}
+
+#taskList li .edit-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #1abc9c;
+    border-radius: 6px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-size: 1.1em;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#taskList li button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#taskList li button:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
